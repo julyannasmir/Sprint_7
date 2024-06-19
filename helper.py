@@ -9,8 +9,9 @@ class ChangeTestDataHelper:
     @staticmethod
     @allure.step('Удаление поля из тела запроса на создание курьера')
     def delete_field_from_created_courier_body(body, key):
-        del body[key]
-        return body
+        body1 = body.copy()
+        del body1[key]
+        return body1
 
     @staticmethod
     @allure.step('Получение тела для логина курьера')
@@ -21,8 +22,9 @@ class ChangeTestDataHelper:
     @staticmethod
     @allure.step('Изменение поля в теле запроса на создание курьера')
     def change_field_in_created_courier_body(body, key, value):
-        body[key] = value
-        return body
+        body1 = body.copy()
+        body1[key] = value
+        return body1
 
 
 class RandomData:

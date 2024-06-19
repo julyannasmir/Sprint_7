@@ -21,11 +21,4 @@ class CourierApi:
     def create_courier(body):
         return requests.post(urls.BASE_URL + urls.CREATE_COURIER_ENDPOINT, json=body)
 
-    @staticmethod
-    @allure.step("Удаление созданного курьера")
-    def delete_created_courier(body):
-        if 'firstName' in body:
-            body = ChangeTestDataHelper.get_login_body(body)
-        courier_id = CourierApi.login_and_get_id(body)
-        return requests.delete(urls.BASE_URL + urls.DELETE_COURIER_ENDPOINT + str(courier_id))
 
